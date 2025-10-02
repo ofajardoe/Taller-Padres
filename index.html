@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navegando el Mundo Digital con Preadolescentes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: The SPA uses a thematic, single-page structure with a fixed top navigation for easy access to four key areas: Understanding the Digital World, Main Risks, Control Tools, and The Family Plan. This is more user-friendly than a linear slide format, allowing parents to jump directly to their area of need. Key interactions include tabbed interfaces for the 'Risks' and 'Tools' sections to present detailed information concisely, preventing cognitive overload. The flow guides the user from understanding the context, to identifying problems, to implementing practical solutions. -->
+    <!-- Visualization & Content Choices: Report Info: Opportunities vs. Risks -> Goal: Compare -> Viz/Presentation Method: Two-column layout with icons (HTML/Tailwind) -> Interaction: Static visual comparison -> Justification: Clearly contrasts positive and negative aspects without needing a chart. | Report Info: Grooming Process -> Goal: Organize/Explain -> Viz/Presentation Method: Numbered step-diagram (HTML/Tailwind) -> Interaction: Static visual guide -> Justification: Simplifies a complex process into easy-to-follow steps. | Report Info: Parental Control Steps -> Goal: Instruct -> Viz/Presentation Method: Tabbed interface for OS (iOS, Android, etc.) with clear, styled lists -> Interaction: User clicks tab to reveal specific instructions -> Justification: Organizes dense, technical information logically and prevents overwhelming the user with irrelevant steps. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDF8F0;
+            color: #4A4A4A;
+        }
+        .active-tab {
+            border-color: #4E8098;
+            background-color: #4E8098;
+            color: #FFFFFF;
+        }
+        .inactive-tab {
+            border-color: #E0E0E0;
+            background-color: #FFFFFF;
+            color: #4A4A4A;
+        }
+        .nav-link.active {
+            font-weight: 700;
+            color: #4E8098;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-lg font-bold text-gray-800">Guía Digital para Padres</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#mundo-digital" class="nav-link text-gray-600 hover:text-[#4E8098] px-3 py-2 rounded-md text-sm font-medium">Entendiendo su Mundo</a>
+                        <a href="#riesgos" class="nav-link text-gray-600 hover:text-[#4E8098] px-3 py-2 rounded-md text-sm font-medium">Principales Riesgos</a>
+                        <a href="#herramientas" class="nav-link text-gray-600 hover:text-[#4E8098] px-3 py-2 rounded-md text-sm font-medium">Herramientas de Control</a>
+                        <a href="#plan-familiar" class="nav-link text-gray-600 hover:text-[#4E8098] px-3 py-2 rounded-md text-sm font-medium">Plan Familiar</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+
+        <section id="hero" class="text-center py-16">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-[#4A4A4A] tracking-tight">Navegando el Mundo Digital con Nuestros Preadolescentes</h2>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">Una guía interactiva para padres sobre el uso seguro de internet, redes sociales y videojuegos para Preadolescentes.</p>
+        </section>
+
+        <section id="mundo-digital" class="py-16 scroll-mt-20">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-[#4E8098]">1. Entendiendo su Mundo Digital</h3>
+                <p class="mt-2 text-lg text-gray-600 max-w-3xl mx-auto">Antes de establecer reglas, es fundamental comprender el entorno en el que se mueven nuestros hijos. Esta sección explora quiénes son como "nativos digitales", qué hacen en línea y el balance entre las oportunidades y los riesgos que enfrentan.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 items-start">
+                <div class="space-y-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="text-xl font-semibold mb-2">¿Quiénes son los Preadolescentes de Hoy?</h4>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li><strong>Nativos digitales:</strong> La tecnología es una extensión natural de su mundo.</li>
+                            <li><strong>Socialización híbrida:</strong> Ocurre tanto cara a cara como en línea.</li>
+                            <li><strong>Búsqueda de independencia:</strong> Buscan validación de sus pares a través de likes y comentarios.</li>
+                            <li><strong>Ventana a la cultura:</strong> El mundo digital es su principal acceso a tendencias y amistades.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="text-xl font-semibold mb-2">¿A Qué Dedican su Tiempo en Línea?</h4>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li><strong>Videojuegos sociales:</strong> Fortnite, Roblox, Minecraft.</li>
+                            <li><strong>Redes Sociales:</strong> TikTok, Instagram, Snapchat.</li>
+                            <li><strong>Comunicación directa:</strong> WhatsApp, Discord.</li>
+                            <li><strong>Entretenimiento:</strong> YouTube, Twitch.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h4 class="text-xl font-semibold mb-4 text-center">El Gran Balance: Oportunidades vs. Riesgos</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="bg-green-50 p-4 rounded-md">
+                            <h5 class="font-bold text-green-700 mb-2">Oportunidades ✅</h5>
+                            <ul class="space-y-2 text-sm text-green-800">
+                                <li>Desarrollo de habilidades (creatividad, colaboración).</li>
+                                <li>Acceso a información y aprendizaje.</li>
+                                <li>Creación de amistades.</li>
+                                <li>Inclusión y pertenencia social.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-red-50 p-4 rounded-md">
+                            <h5 class="font-bold text-red-700 mb-2">Riesgos ❗️</h5>
+                            <ul class="space-y-2 text-sm text-red-800">
+                                <li>Contenido inapropiado.</li>
+                                <li>Ciberacoso (Cyberbullying).</li>
+                                <li>Grooming (abuso en línea).</li>
+                                <li>Adicción y mala gestión del tiempo.</li>
+                            </ul>
+                        </div>
+                    </div>
+                     <p class="mt-4 text-sm text-gray-600 text-center">Nuestro objetivo es maximizar las oportunidades mientras minimizamos los riesgos a través de la guía y la comunicación.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="riesgos" class="py-16 scroll-mt-20">
+             <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-[#4E8098]">2. Principales Riesgos y Cómo Identificarlos</h3>
+                <p class="mt-2 text-lg text-gray-600 max-w-3xl mx-auto">Conocer los peligros es el primer paso para protegerlos. Esta sección interactiva detalla los riesgos más comunes, ofrece ejemplos concretos y enumera las señales de alerta que como padres debemos observar.</p>
+            </div>
+            <div>
+                <div class="mb-4 flex flex-wrap justify-center gap-2">
+                    <button data-tab="riesgos-tab" data-target="ciberacoso" class="px-4 py-2 text-sm font-medium border rounded-full shadow-sm transition-all duration-200 active-tab">Ciberacoso</button>
+                    <button data-tab="riesgos-tab" data-target="grooming" class="px-4 py-2 text-sm font-medium border rounded-full shadow-sm transition-all duration-200 inactive-tab">Grooming</button>
+                    <button data-tab="riesgos-tab" data-target="contenido" class="px-4 py-2 text-sm font-medium border rounded-full shadow-sm transition-all duration-200 inactive-tab">Contenido Inapropiado</button>
+                    <button data-tab="riesgos-tab" data-target="adiccion" class="px-4 py-2 text-sm font-medium border rounded-full shadow-sm transition-all duration-200 inactive-tab">Adicción</button>
+                </div>
+                <div class="bg-white p-6 sm:p-8 rounded-lg shadow-xl">
+                    <div id="ciberacoso" class="riesgos-content">
+                        <h4 class="text-2xl font-bold mb-4">Riesgo 1: Ciberacoso (Cyberbullying)</h4>
+                        <p class="mb-4">Acoso, humillación o amenaza entre pares usando medios digitales. Es persistente (24/7) y su alcance es masivo.</p>
+                        <div class="my-6">
+                            <div class="relative h-0 pb-[56.25%] rounded-lg shadow-md overflow-hidden">
+                                <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube-nocookie.com/embed/j-tFoYNHi1w?si=6SaydFdHBozHr_Ji" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h5 class="font-semibold mb-2">Ejemplos Comunes:</h5>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                    <li>Exclusión de grupos de WhatsApp.</li>
+                                    <li>Creación de memes o stickers ofensivos.</li>
+                                    <li>Difusión de rumores en redes sociales.</li>
+                                    <li>Comentarios hirientes en fotos o videos.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 class="font-semibold mb-2 text-red-600">Señales de Alerta:</h5>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                    <li>Cambios de humor drásticos tras usar dispositivos.</li>
+                                    <li>Evita hablar de su vida en línea.</li>
+                                    <li>Elimina perfiles en redes sociales de repente.</li>
+                                    <li>Bajo rendimiento escolar o desinterés.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="grooming" class="riesgos-content hidden">
+                         <h4 class="text-2xl font-bold mb-4">Riesgo 2: Grooming</h4>
+                        <p class="mb-4">Proceso en el que un adulto contacta a un menor en línea con intenciones de abuso. Suelen encontrarlos en chats de videojuegos y redes sociales.</p>
+                        <div class="my-6">
+                            <div class="relative h-0 pb-[56.25%] rounded-lg shadow-md overflow-hidden">
+                                <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube-nocookie.com/embed/OdixH25nCHk?si=v7bR5hu_4QfDoQh6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                         <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h5 class="font-semibold mb-2">Fases del Agresor:</h5>
+                                <ol class="list-decimal list-inside space-y-2 text-gray-700">
+                                    <li><strong>Ganarse la confianza:</strong> Se hace pasar por un amigo que lo entiende.</li>
+                                    <li><strong>Aislamiento:</strong> Pide que la "amistad" sea un secreto.</li>
+                                    <li><strong>Normalización:</strong> Introduce conversaciones o contenido sexual.</li>
+                                    <li><strong>Chantaje:</strong> Usa la información obtenida para forzar al menor.</li>
+                                </ol>
+                            </div>
+                            <div>
+                                <h5 class="font-semibold mb-2 text-red-600">Señales de Alerta:</h5>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                    <li>Usa dispositivos a escondidas, cierra pantallas.</li>
+                                    <li>Menciona un "amigo" online del que no sabemos nada.</li>
+                                    <li>Recibe regalos o dinero de origen desconocido.</li>
+                                    <li>Se muestra ansioso o temeroso si no puede conectarse.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="contenido" class="riesgos-content hidden">
+                        <h4 class="text-2xl font-bold mb-4">Riesgo 3: Contenido Inapropiado</h4>
+                        <p class="mb-4">Exposición a contenido violento, pornográfico, discursos de odio o retos virales peligrosos.</p>
+                         <div class="grid md:grid-cols-2 gap-6">
+                             <div>
+                                <h5 class="font-semibold mb-2">¿Cómo llegan a él?</h5>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                    <li>Búsquedas inocentes con resultados inesperados.</li>
+                                    <li>Enlaces compartidos por amigos.</li>
+                                    <li>Algoritmos de YouTube o TikTok que recomiendan contenido progresivamente más extremo.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                 <h5 class="font-semibold mb-2 text-blue-600">Nuestra Mejor Herramienta:</h5>
+                                 <p class="text-gray-700">La conversación. Preguntar abiertamente "¿Qué es lo más raro que has visto en internet?" puede abrir la puerta a que compartan sus experiencias sin miedo.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="adiccion" class="riesgos-content hidden">
+                        <h4 class="text-2xl font-bold mb-4">Riesgo 4: Adicción y Gestión del Tiempo</h4>
+                        <p class="mb-4">No se trata solo del número de horas, sino del impacto negativo en su vida cotidiana. Muchos juegos y apps están diseñados para ser adictivos.</p>
+                        <div class="my-6">
+                            <div class="relative h-0 pb-[56.25%] rounded-lg shadow-md overflow-hidden">
+                                <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube-nocookie.com/embed/TwCT5TaVB2s?si=OThrgThJ62KHme7B" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                             <div>
+                                <h5 class="font-semibold mb-2">Preguntas Clave:</h5>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                    <li>¿Deja de hacer deberes por jugar?</li>
+                                    <li>¿Ha perdido interés en otros hobbies?</li>
+                                    <li>¿Se vuelve irritable si no puede jugar?</li>
+                                    <li>¿Afecta a sus horas de sueño o higiene?</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 class="font-semibold mb-2 text-red-600">El Diseño Adictivo:</h5>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                    <li><strong>Recompensas variables:</strong> Cajas de botín (loot boxes).</li>
+                                    <li><strong>FOMO (Fear of Missing Out):</strong> Misiones y eventos diarios que generan presión por conectarse.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="herramientas" class="py-16 scroll-mt-20">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-[#4E8098]">3. Nuestra Caja de Herramientas: Controles y Estrategias</h3>
+                <p class="mt-2 text-lg text-gray-600 max-w-3xl mx-auto">La conversación es clave, pero las herramientas tecnológicas nos proporcionan una red de seguridad esencial. Aquí encontrarás guías prácticas y paso a paso para configurar los controles parentales en los dispositivos más comunes.</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
+                <h4 class="text-2xl font-semibold mb-6 text-center">La Estrategia de las 3 "C"</h4>
+                <div class="grid md:grid-cols-3 gap-6 text-center">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h5 class="font-bold text-blue-800 text-lg mb-2">1. Conversación</h5>
+                        <p class="text-sm text-blue-700">Crear un clima de confianza para que hablen de sus experiencias online. Muestra interés genuino por sus juegos y amigos virtuales.</p>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h5 class="font-bold text-green-800 text-lg mb-2">2. Configuración</h5>
+                        <p class="text-sm text-green-700">Usar controles parentales para crear un entorno seguro, filtrar contenido y gestionar el tiempo de pantalla. Es una red de seguridad, no espionaje.</p>
+                    </div>
+                    <div class="bg-yellow-50 p-4 rounded-lg">
+                        <h5 class="font-bold text-yellow-800 text-lg mb-2">3. Contexto</h5>
+                        <p class="text-sm text-yellow-700">Nuestro comportamiento digital es la lección más poderosa. Seamos un modelo a seguir de un equilibrio saludable entre la vida online y offline.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="mb-4 flex flex-wrap justify-center gap-2">
+                    <button data-tab="herramientas-tab" data-target="ios" class="px-4 py-2 text-sm font-medium border rounded-full shadow-sm transition-all duration-200 active-tab">iOS (iPhone/iPad)</button>
+                    <button data-tab="herramientas-tab" data-target="android" class="px-4 py-2 text-sm font-medium border rounded-full shadow-sm transition-all duration-200 inactive-tab">Android</button>
+                    <button data-tab="herramientas-tab" data-target="windows" class="px-4 py-2 text-sm font-medium border rounded-full shadow-sm transition-all duration-200 inactive-tab">Windows</button>
+                    <button data-tab="herramientas-tab" data-target="macos" class="px-4 py-2 text-sm font-medium border rounded-full shadow-sm transition-all duration-200 inactive-tab">macOS</button>
+                    <button data-tab="herramientas-tab" data-target="apps-control" class="px-4 py-2 text-sm font-medium border rounded-full shadow-sm transition-all duration-200 inactive-tab">Apps de Control</button>
+                </div>
+
+                <div class="bg-white p-6 sm:p-8 rounded-lg shadow-xl">
+                    <div id="ios" class="herramientas-content">
+                        <h4 class="text-2xl font-bold mb-2">Control Parental en iOS: "Tiempo de Uso"</h4>
+                        <p class="mb-4 text-gray-600">Integrado en Ajustes, permite un control granular del dispositivo.</p>
+                        <ol class="list-decimal list-inside space-y-2">
+                            <li>Ve a <strong>Ajustes > Tiempo de Uso</strong> y actívalo para tu hijo/a.</li>
+                            <li><strong>Tiempo desactivado:</strong> Programa horas sin pantalla (ej. de 21:00 a 07:00).</li>
+                            <li><strong>Límites para apps:</strong> Establece límites diarios para categorías (ej. 1 hora para "Juegos").</li>
+                            <li><strong>Restricciones de contenido y privacidad:</strong> Filtra webs, impide instalar apps y bloquea cambios de privacidad.</li>
+                        </ol>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <a href="https://support.apple.com/es-es/105121" target="_blank" class="inline-block bg-[#4E8098] text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition-colors text-sm">Ver guía oficial de Apple</a>
+                            <a href="https://youtu.be/uwA8tZC6Jlo?si=MFRgpS_bUznHdSHF" target="_blank" class="inline-block bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors text-sm">▶️ Ver Videotutorial</a>
+                        </div>
+                    </div>
+                    <div id="android" class="herramientas-content hidden">
+                        <h4 class="text-2xl font-bold mb-2">Control Parental en Android: "Google Family Link"</h4>
+                        <p class="mb-4 text-gray-600">Una aplicación potente y gratuita para gestionar dispositivos Android.</p>
+                         <ol class="list-decimal list-inside space-y-2">
+                            <li>Descarga <strong>"Family Link para padres"</strong> en tu móvil y <strong>"Family Link para niños"</strong> en el de tu hijo/a.</li>
+                            <li><strong>Gestionar tiempo:</strong> Establece un límite diario y una hora de dormir para el dispositivo.</li>
+                            <li><strong>Aprobar o bloquear apps:</strong> Recibe una notificación para autorizar descargas de Google Play.</li>
+                            <li><strong>Filtrar contenido:</strong> Aplica filtros en Chrome, Búsqueda y YouTube.</li>
+                             <li><strong>Ver ubicación:</strong> Localiza el dispositivo en un mapa.</li>
+                        </ol>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <a href="https://families.google/familylink/" target="_blank" class="inline-block bg-[#4E8098] text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition-colors text-sm">Ver guía oficial de Google</a>
+                            <a href="https://youtu.be/1q4L7hZ9LM0?si=sCz7SyQ-1AI8c0OC" target="_blank" class="inline-block bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors text-sm">▶️ Ver Videotutorial</a>
+                        </div>
+                    </div>
+                    <div id="windows" class="herramientas-content hidden">
+                        <h4 class="text-2xl font-bold mb-2">Control Parental en Windows: "Microsoft Family Safety"</h4>
+                        <p class="mb-4 text-gray-600">Gestiona el tiempo y contenido en ordenadores Windows y consolas Xbox.</p>
+                        <ol class="list-decimal list-inside space-y-2">
+                            <li>Ve a <strong>account.microsoft.com/family</strong> y crea un grupo familiar.</li>
+                            <li><strong>Límites de tiempo:</strong> Establece horarios de uso para PC y Xbox.</li>
+                            <li><strong>Filtrar sitios web:</strong> Bloquea contenido para adultos en el navegador Microsoft Edge.</li>
+                            <li><strong>Limitar apps y juegos:</strong> Por clasificación de edad (PEGI).</li>
+                            <li><strong>Controlar gastos:</strong> Requiere tu aprobación para compras en la Microsoft Store.</li>
+                        </ol>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <a href="https://support.microsoft.com/es-es/account-billing/introducci%C3%B3n-a-microsoft-family-safety-b6280c9d-38d7-82ff-0e4f-a6cb7e659344" target="_blank" class="inline-block bg-[#4E8098] text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition-colors text-sm">Ver guía oficial de Microsoft</a>
+                            <a href="https://youtu.be/6NB8NAFwis4?si=5gghDh-I5YXH73EJ" target="_blank" class="inline-block bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors text-sm">▶️ Ver Videotutorial</a>
+                        </div>
+                    </div>
+                     <div id="macos" class="herramientas-content hidden">
+                        <h4 class="text-2xl font-bold mb-2">Control Parental en macOS: "Tiempo de Uso"</h4>
+                        <p class="mb-4 text-gray-600">Funciona de forma similar a iOS, centralizando el control en los ordenadores Mac.</p>
+                        <ol class="list-decimal list-inside space-y-2">
+                            <li>Ve a <strong>Ajustes del Sistema > Tiempo de Uso</strong>.</li>
+                            <li>Usa <strong>"En Familia"</strong> para seleccionar y gestionar la cuenta de tu hijo/a.</li>
+                            <li>Las opciones son idénticas a las de iOS: Tiempo desactivado, Límites para apps, Restricciones de contenido y privacidad.</li>
+                        </ol>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <a href="https://support.apple.com/es-es/guide/mac-help/mh3d6eb198/26/mac/26" target="_blank" class="inline-block bg-[#4E8098] text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition-colors text-sm">Ver guía oficial de Apple</a>
+                            <a href="https://youtu.be/hXrf9zGqYiA?si=4sKgnhFIypL1WIIz" target="_blank" class="inline-block bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors text-sm">▶️ Ver Videotutorial</a>
+                        </div>
+                    </div>
+                    <div id="apps-control" class="herramientas-content hidden">
+                        <h4 class="text-2xl font-bold mb-2">Aplicaciones Populares de Control Parental</h4>
+                        <p class="mb-6 text-gray-600">Para familias que buscan funciones más avanzadas, como monitoreo de redes sociales o geocercas, estas aplicaciones ofrecen soluciones robustas.</p>
+                        <div class="space-y-6">
+                            <div class="p-4 border rounded-lg">
+                                <h5 class="font-bold text-lg">Qustodio</h5>
+                                <p class="text-sm text-gray-600 mb-2">Una de las más completas, con filtrado web, límites de tiempo, monitoreo de llamadas y SMS, y seguimiento en redes sociales.</p>
+                                <a href="https://youtu.be/BumWM0uWe5c?si=M_nAaGJMqXmNHnOT" target="_blank" class="inline-block bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors text-sm">▶️ Ver Tutorial de Qustodio</a>
+                            </div>
+                            <div class="p-4 border rounded-lg">
+                                <h5 class="font-bold text-lg">Bark</h5>
+                                <p class="text-sm text-gray-600 mb-2">Se especializa en monitorear textos, correos electrónicos y más de 30 redes sociales en busca de problemas como ciberacoso, sexting o depresión.</p>
+                                <a href="https://youtu.be/rIUVC62xwB4?si=yTLHSiF2EG1WuJNJ" target="_blank" class="inline-block bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors text-sm">▶️ Ver Tutorial de Bark</a>
+                            </div>
+                            <div class="p-4 border rounded-lg">
+                                <h5 class="font-bold text-lg">AirDroid Parental Control</h5>
+                                <p class="text-sm text-gray-600 mb-2">Permite a los padres supervisar y gestionar remotamente el uso del dispositivo de sus hijos, tanto en línea como fuera de línea..</p>
+                                <a href="https://youtu.be/78TRnKhaW-k?si=3qB9uVdbWTGNij1a" target="_blank" class="inline-block bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors text-sm">▶️ Ver Tutorial AirDroid</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="plan-familiar" class="py-16 scroll-mt-20">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-[#4E8098]">4. Creando un Plan Digital Familiar</h3>
+                <p class="mt-2 text-lg text-gray-600 max-w-3xl mx-auto">La tecnología es solo una parte de la solución. El éxito a largo plazo reside en establecer acuerdos claros y fomentar un equilibrio saludable entre la vida digital y la real. Aquí te damos las claves para crear vuestro propio plan.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 items-start">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h4 class="text-xl font-semibold mb-4">El Contrato Familiar de Uso Tecnológico</h4>
+                    <p class="mb-4 text-gray-600">Un acuerdo escrito y negociado en familia sobre las reglas de uso de los dispositivos. Esto fomenta la responsabilidad y el compromiso.</p>
+                    <div class="space-y-3">
+                        <p class="font-medium">Puntos clave a incluir:</p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                           <li><strong>Horarios y Lugares:</strong> Sin pantallas durante comidas; carga de dispositivos en zonas comunes.</li>
+                           <li><strong>Contenido y Comportamiento:</strong> Apps permitidas, reglas de respeto online, no hablar con extraños.</li>
+                           <li><strong>Contraseñas:</strong> Acceso para los padres en caso de emergencia.</li>
+                           <li><strong>Consecuencias:</strong> Acordadas previamente si no se cumplen las normas.</li>
+                        </ul>
+                    </div>
+                </div>
+                 <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h4 class="text-xl font-semibold mb-4">Fomentando un Ocio Alternativo</h4>
+                    <p class="mb-4 text-gray-600">La clave no es solo limitar, sino ofrecer alternativas atractivas para que la vida real sea tan o más interesante que la virtual.</p>
+                     <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-50 p-3 rounded-md text-center">
+                            <span class="text-2xl">🎲</span>
+                            <p class="text-sm font-medium mt-1">Juegos de mesa</p>
+                        </div>
+                         <div class="bg-gray-50 p-3 rounded-md text-center">
+                            <span class="text-2xl">⚽️</span>
+                            <p class="text-sm font-medium mt-1">Deportes</p>
+                        </div>
+                         <div class="bg-gray-50 p-3 rounded-md text-center">
+                            <span class="text-2xl">📚</span>
+                            <p class="text-sm font-medium mt-1">Lectura y Hobbies</p>
+                        </div>
+                         <div class="bg-gray-50 p-3 rounded-md text-center">
+                            <span class="text-2xl">🌲</span>
+                            <p class="text-sm font-medium mt-1">Actividades al aire libre</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-white border-t">
+        <div class="container mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-gray-600">
+            <p class="text-lg font-semibold">El objetivo es criar ciudadanos digitales responsables y resilientes.</p>
+            <p class="text-sm mt-2">Mantente curioso e involucrado en su vida digital. La confianza es tu mejor herramienta.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('[data-tab]');
+            
+            const handleTabClick = (tabCollection, contentClass) => {
+                const tabButtons = document.querySelectorAll(`[data-tab="${tabCollection}"]`);
+                const contentPanels = document.querySelectorAll(`.${contentClass}`);
+                
+                tabButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        tabButtons.forEach(btn => {
+                            btn.classList.remove('active-tab');
+                            btn.classList.add('inactive-tab');
+                        });
+                        button.classList.add('active-tab');
+                        button.classList.remove('inactive-tab');
+                        
+                        const targetId = button.dataset.target;
+                        contentPanels.forEach(panel => {
+                            if (panel.id === targetId) {
+                                panel.classList.remove('hidden');
+                            } else {
+                                panel.classList.add('hidden');
+                            }
+                        });
+                    });
+                });
+            };
+
+            handleTabClick('riesgos-tab', 'riesgos-content');
+            handleTabClick('herramientas-tab', 'herramientas-content');
+
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: '-50% 0px -50% 0px' });
+            
+            sections.forEach(section => {
+                if (section.id) {
+                    observer.observe(section);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
